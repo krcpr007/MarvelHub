@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-danger sticky-top p-1">
+    <nav className="navbar navbar-expand-lg navbar-light bg-danger  p-1">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">Marvel Hub</Link>
+        <Link className="navbar-brand " to="/"> <b> Marvel Hub </b></Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -19,7 +19,7 @@ const Navbar = () => {
           </ul>
           <form className="d-flex">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-light" type="submit">Search</button>
+            <button className="btn btn-outline-dark" type="submit">Search</button>
           </form>
         </div>
       </div>
