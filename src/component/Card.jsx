@@ -2,7 +2,7 @@ import React from 'react'
 
 function Card({Img , name, Description}) {
     return (
-        <div className="card" style={{ width: "18rem" }}>
+        <div className="card m-3 border-danger" style={{ width: "18rem" }}>
         <img style={{width:"100%"}}
           src={`${Img}/portrait_incredible.jpg`}
           className="card-img-top img-thumbnail"
