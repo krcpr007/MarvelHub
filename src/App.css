@@ -1,43 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Fasthand&family=Roboto+Condensed&display=swap');
-body{
-  font-family: 'Roboto Condensed', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Fasthand&family=Roboto+Condensed&display=swap");
+body {
+  font-family: "Roboto Condensed", sans-serif;
 }
-.navbar{
-  /* position: absolute; */
-  /* background:transparent !important; */
+.navbar {
   width: 100%;
   z-index: 10;
-  /* border-bottom: 1px solid black; */
 }
-.search-bar{
+.search-bar {
   display: fixed;
   position: absolute;
   z-index: 1;
   top: 37%;
   width: 100%;
-  /* position: relative;
-  top: 400px; */
-
 }
-.abt-heading{
-   text-decoration: 2px line-through red;
-
+.abt-heading {
+  text-decoration: 2px line-through red;
 }
-/* .navbar-brand{
-  text-decoration: 3px line-through black;
-} */
-.subtitle{
- 
-  position: relative;  
-  font-size: 30px;  
-  z-index: 1; 
+.subtitle {
+  position: relative;
+  font-size: 30px;
+  z-index: 1;
 }
-.subtitle::after{
-    content: '';  
-    background-color: red;  
-    height: 1px;  
-    display: block;  
-    top: 18px;  
-    left: 200px;  
+.subtitle::after {
+  content: "";
+  background-color: red;
+  height: 1px;
+  display: block;
+  top: 18px;
+  left: 200px;
+  width: 100%;
+}
+@media (max-width: 400px) {
+  .search-bar {
+    display: fixed;
+    position: absolute;
+    z-index: 1;
+    top: 25%;
     width: 100%;
+  }
 }
