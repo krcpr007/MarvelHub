@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = ({charName}) => {
+const Footer = () => {
   return (
     <div>
       <footer
@@ -129,14 +129,14 @@ const Footer = ({charName}) => {
           className="text-center p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
-          © 2020 Copyright:
-          <a
+          © 2021 Copyright: 
+          <a title="contact me"
             className="text-white"
             style={{ textDecoration: "none" }}
             href="https://www.instagram.com/cr7.rajan"
           >
-            {" "}
-            Rajan
+           
+            Rajan Kumar
           </a>
         </div>
         {/* <!-- Copyright --> */}
