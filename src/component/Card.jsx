@@ -20,7 +20,7 @@ function Card({ Img, name, Description }) {
         </figure>
         <div className="max-w-md card-body">
           <h2 className="card-title">{name}</h2>
-          <p>{Description || "No Data Available"}</p>
+          <p className="text-justify">{Description || "No Data Available"}</p>
           <div className="card-actions">
             <button className="btn btn-ghost btn glass rounded-full">Get Started</button>
           </div>
