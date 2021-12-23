@@ -1,7 +1,13 @@
-import React from "react";
-import cardImage from './images/ironMan.jpg'
+import React, { useEffect, useState } from "react";
+import cardImage from "./images/ironMan.jpg";
 import { FaGithub } from "react-icons/fa";
 const About = () => {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    fetch(`https://programming-quotes-api.herokuapp.com/Quotes/random`)
+      .then((resp) => resp.json())
+      .then((resp) => <>{(setData(resp))}</>);
+  }, []);
   return (
     <div>
       <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-25">
@@ -20,10 +26,7 @@ const About = () => {
               Marvel Hub
             </span>
           </h1>
-          <p
-            style={{ textAlign: "justify" }}
-            className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 text-align:justify"
-          >
+          <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 text-justify">
             Hii... A very welcome to marvel hub it's just a simple marvel
             cinematic universe website where you can read about all the MCU
             superheroes, lots of comics of heroes and every detail of the hero
@@ -35,8 +38,8 @@ const About = () => {
               rel="noreferrer"
             >
               Rajan kumar
-            </a>
-            {" "}a simple 2nd-year college student of{" "}
+            </a>{" "}
+            a simple 2nd-year college student of{" "}
             <a
               href="http://www.nitp.ac.in/php/home.php"
               target="_blank"
@@ -60,13 +63,16 @@ const About = () => {
               className="hover:underline text-primary"
             >
               here
-            </a>
-            {" "}is the repository link. happy code!!
+            </a>{" "}
+            is the repository link. happy code!!
             <br />
             <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ullam adipisci cumque voluptate modi commodi, illum est blanditiis itaque distinctio deserunt error iure similique minima ipsa? Laborum vero modi ipsam?
-            Odio nesciunt ea non nulla praesentium quam. Facilis error laudantium tempora atque deserunt maxime fugit amet possimus voluptatum
           </p>
+          <h1 className="text-xl">Programing Quote</h1>
+          <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 text-justify">
+            {data.en}
+          </p>
+          <div className="footer">-- {data.author}</div>
           <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div className="rounded-md shadow">
               <a
@@ -83,7 +89,7 @@ const About = () => {
                 rel="noreferrer"
                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10 btn btn-primary"
               >
-                <FaGithub fontSize={25}/>
+                <FaGithub fontSize={25} />
               </a>
             </div>
           </div>
@@ -101,7 +107,11 @@ const About = () => {
               <div className="badge mx-2 badge-primary">RIP</div>
             </h2>
             <p>
-            Wounded, captured and forced to build a weapon by his enemies, billionaire industrialist Tony Stark instead created an advanced suit of armor to save his life and escape captivity. Now with a new outlook on life, Tony uses his money and intelligence to make the world a safer, better place as Iron Man
+              Wounded, captured and forced to build a weapon by his enemies,
+              billionaire industrialist Tony Stark instead created an advanced
+              suit of armor to save his life and escape captivity. Now with a
+              new outlook on life, Tony uses his money and intelligence to make
+              the world a safer, better place as Iron Man
             </p>
             {/* <div className="justify-end card-actions">
               <button className="btn btn-secondary">More info</button>
