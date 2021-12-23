@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { FaSearchengin } from "react-icons/fa";
 import Card from "./Card";
-import Carousel from "./Carousel";
+// import Carousel from "./Carousel";
 import Comics from "./Comics";
 // import backgroundImg from "./images/ironMan.jpg";
 const Welcome = () => {
@@ -11,6 +11,9 @@ const Welcome = () => {
   const [Description, setDescription] = useState();
   const [Img, setImg] = useState();
   const [search, setSearch] = useState(null);
+  const comicsFetchFunc= ()=>{
+    console.log("this is fetch commicss")
+  }
   const onclickbutton = (e) => {
     e.preventDefault();
     setcharName(search);
@@ -51,10 +54,10 @@ const Welcome = () => {
                     onChange={(e) => setSearch(e.target.value)}
                   />
                   <button
-                    className="absolute top-0 right-0 rounded-l-none w-36 btn border-2 border-primary"
+                    className="absolute top-0 right-0 rounded-l-none w-36 btn border-2 border-primary text-primary"
                     onClick={onclickbutton}
                   >
-                    Go
+                   <FaSearchengin/>
                   </button>
                 </div>
               </div>
@@ -67,7 +70,7 @@ const Welcome = () => {
           <Card Img={Img} name={name} Description={Description} />
         </div>
 
-        <Comics charName={charName} />
+        <Comics charName={charName} comicsFetchFunc={comicsFetchFunc} />
       </div>
     </>
   );
