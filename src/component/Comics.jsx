@@ -15,17 +15,17 @@ function Comics({ charName, comicsFetchFunc }) {
   return (
     <div className="lg:text-center">
       <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
-        Transactions
+        <hr />
       </h2>
       <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-primary sm:text-4xl">
         Marvel Comics of {charName}
       </p>
-      <p className="mt-4 max-w-4xl text-xl text-gray-500 lg:mx-auto text-justify">
+      <p className="mt-4 max-w-4xl text-xl text-gray-400 lg:mx-auto text-justify">
         Marvel Comics is the brand name and primary imprint of Marvel Worldwide
         Inc., formerly Marvel Publishing, Inc. and Marvel Comics Group, a
         publisher of American comic books and related media. In 2009, The Walt
         Disney Company acquired Marvel Entertainment, Marvel Worldwide's parent
-        company
+        company.
       </p>
       <div className="container">
         <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  items-center mt-5">
