@@ -1,10 +1,10 @@
 import React from "react";
 function ComicsCard({ title, description, More_info, imageUrl, publishDate }) {
-   const stringDate= new Date(publishDate).toGMTString(); 
+   const stringDate= new Date(publishDate).toLocaleDateString(); 
   return (
-    <div className="card glass w-72 border-2 border-primary shadow card-bordered card-compact lg:card-normal ml-3 md:ml-5">
+    <div className="card glass w-72 border-2 border-primary shadow card-bordered card-compact lg:card-normal ml-3 md:ml-4">
       <figure>
-        <img src={`${imageUrl}/portrait_incredible.jpg`} alt={`${title}-Pic`} />
+        <img src={`${imageUrl}/portrait_uncanny.jpg`} alt={`${title}-Pic`} />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
@@ -18,7 +18,7 @@ function ComicsCard({ title, description, More_info, imageUrl, publishDate }) {
           >
             know more
           </a>
-        <p>Publish Date</p> {stringDate}
+        Publish Date {stringDate}
         </div>
       </div>
     </div>
