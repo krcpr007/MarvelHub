@@ -13,7 +13,7 @@ function Card({ Img, name, Description }) {
       <div className="card glass lg:card-side text-neutral-content">
         <figure className="p-4">
           <img
-            src={`${Img}/portrait_incredible.jpg`}
+            src={`${Img}/portrait_uncanny.jpg`}
             className="rounded-lg shadow-lg"
             alt={`${name}-Pic`}
           />
@@ -22,7 +22,7 @@ function Card({ Img, name, Description }) {
           <h2 className="card-title">{name}</h2>
           <p className="text-justify">{Description || "No Data Available"}</p>
           <div className="card-actions">
-            <button className="btn btn-ghost btn glass rounded-full">Get Started</button>
+            <button className="btn btn-primary btn glass rounded-full">Get Started</button>
           </div>
         </div>
       </div>
