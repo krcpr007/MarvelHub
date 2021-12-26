@@ -68,11 +68,11 @@ const About = () => {
             <br />
             <br />
           </p>
-          <h1 className="text-xl">Programing Quote</h1>
+          <h1 className="text-xl text-primary">Programing Quote</h1>
           <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 text-justify">
             {data.en}
           </p>
-          <div className="footer">-- {data.author}</div>
+          <span className="footer text-primary">-- {data.author}</span>
           <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div className="rounded-md shadow">
               <a
@@ -95,9 +95,9 @@ const About = () => {
           </div>
         </div>
       </main>
-      <div className="lg:absolute lg:inset-y-20 lg:right-20 mt-10">
+      <div className="lg:absolute lg:inset-y-20 lg:right-20 mt-10 md:mt-0 px-4 py-10">
         {/* <img className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt=""/> */}
-        <div className="card drop-shadow-2xl card-bordered border border-primary w-80 my-12">
+        <div className="card drop-shadow-2xl card-bordered border border-primary w-80 my-12 ">
           <figure>
             <img src={cardImage} alt="cardImage" />
           </figure>
