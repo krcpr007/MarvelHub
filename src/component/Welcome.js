@@ -70,7 +70,7 @@ const Welcome = () => {
           <Card Img={Img} name={name} Description={Description} loader={loader}/>
         </div>
 
-        <Comics charName={charName}/>
+        <Comics charName={charName} name={name}/>
       </div>
     </>
   );

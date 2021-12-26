@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ComicsCard from "./ComicsCard";
-function Comics({ charName }) {
+function Comics({ charName , name}) {
   const [data, setData] = useState([]);
   const [loader, setLoader] = useState(false);
   useEffect(() => {
@@ -21,7 +21,7 @@ function Comics({ charName }) {
 
       </h2>
       <p className="mt-5 text-3xl leading-8 font-extrabold tracking-tight text-primary sm:text-4xl text-center">
-        Marvel Comics of {charName}
+        Marvel Comics of {name}
       </p>
       <p className=" max-w-4xl text-xl text-gray-400 lg:mx-auto text-justify px-4 py-5">
         Marvel Comics is the brand name and primary imprint of Marvel Worldwide
