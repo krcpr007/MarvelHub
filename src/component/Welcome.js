@@ -7,19 +7,18 @@ import Comics from "./Comics";
 // import backgroundImg from "./images/ironMan.jpg";
 const Welcome = () => {
   const [name, setname] = useState();
+  const [loader, setLoader] = useState(false);
   const [charName, setcharName] = useState("hulk");
   const [Description, setDescription] = useState();
   const [Img, setImg] = useState();
   const [search, setSearch] = useState(null);
-  const comicsFetchFunc= ()=>{
-    console.log("this is fetch commicss")
-  }
   const onclickbutton = (e) => {
     e.preventDefault();
     setcharName(search);
     // https://gateway.marvel.com/v1/public/comics?ts=1&title=hulk&apikey=a3938f63f5fed93b827255a83feeecd3&hash=7fe5fce16f2f9f493ac53936f10beff0
   };
   useEffect(() => {
+    setLoader(true)
     fetch(
       `https://gateway.marvel.com/v1/public/characters?ts=1&name=${
         charName || "hulk"
@@ -29,12 +28,13 @@ const Welcome = () => {
       .then((resp) => (
         <>
           {
-            (setname(resp.data.results[0].name),
+            (setLoader(false),setname(resp.data.results[0].name),
             setDescription(resp.data.results[0].description),
             setImg(resp.data.results[0].thumbnail.path))
           }
         </>
       ));
+      setLoader(false)
   }, [charName]);
   return (
     <>
@@ -67,10 +67,10 @@ const Welcome = () => {
       </section>
       <div className="">
         <div className="container">
-          <Card Img={Img} name={name} Description={Description} />
+          <Card Img={Img} name={name} Description={Description} loader={loader}/>
         </div>
 
-        <Comics charName={charName} comicsFetchFunc={comicsFetchFunc} />
+        <Comics charName={charName}/>
       </div>
     </>
   );
