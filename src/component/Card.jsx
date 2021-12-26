@@ -1,7 +1,8 @@
 import React from "react";
-function Card({ Img, name, Description }) {
-  if(name===''){
-    return <h2>loading....</h2>
+import Loader from "./Loader";
+function Card({ Img, name, Description ,loader }) {
+  if(loader){
+    return <Loader/>
   }
   return (
     <div
@@ -9,7 +10,7 @@ function Card({ Img, name, Description }) {
       style={{
         backgroundImage: `url('https://source.unsplash.com/daily?${name}')`,
       }}
-    >
+    > 
       <div className="card glass lg:card-side text-neutral-content">
         <figure className="p-4">
           <img
