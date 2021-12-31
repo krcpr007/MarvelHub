@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ComicsCard from "./ComicsCard";
 function Comics({ charName , name}) {
   const [data, setData] = useState([]);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     setLoader(true)
     fetch(
@@ -10,9 +10,11 @@ function Comics({ charName , name}) {
     )
       .then((resp) => resp.json())
       .then((resp) => (
-        <>{(setData(resp.data.results))}</>
+        <>{(
+          setLoader(false),
+          setData(resp.data.results)
+          )}</>
       ));
-      setLoader(false);
     }, [charName]);
 
   return (
