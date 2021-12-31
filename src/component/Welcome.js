@@ -2,20 +2,18 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { FaSearchengin } from "react-icons/fa";
 import Card from "./Card";
-// import Carousel from "./Carousel";
 import Comics from "./Comics";
-// import backgroundImg from "./images/ironMan.jpg";
+import Carousel from "./Carousel";
 const Welcome = () => {
   const [name, setname] = useState();
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   const [charName, setcharName] = useState("hulk");
-  const [Description, setDescription] = useState();
+  const [data, setData] = useState([]);
   const [Img, setImg] = useState();
   const [search, setSearch] = useState(null);
   const onclickbutton = (e) => {
     e.preventDefault();
     setcharName(search);
-    // https://gateway.marvel.com/v1/public/comics?ts=1&title=hulk&apikey=a3938f63f5fed93b827255a83feeecd3&hash=7fe5fce16f2f9f493ac53936f10beff0
   };
   useEffect(() => {
     setLoader(true)
@@ -28,18 +26,20 @@ const Welcome = () => {
       .then((resp) => (
         <>
           {
-            (setLoader(false),setname(resp.data.results[0].name),
-            setDescription(resp.data.results[0].description),
-            setImg(resp.data.results[0].thumbnail.path))
+            (
+              setLoader(false),
+               setData(resp.data.results[0]),
+               setImg(resp.data.results[0].thumbnail.path),
+               setname(resp.data.results[0].name)
+
+            )
           }
         </>
       ));
-      setLoader(false)
   }, [charName]);
   return (
-    <>
-      {/* <Carousel /> */}
-      {/* SearchBar  */}
+    <> 
+    <Carousel name={name}  charName={charName} />
       <section className="search-bar">
         <div className="grid gird-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
           <div>
@@ -65,11 +65,10 @@ const Welcome = () => {
           </div>
         </div>
       </section>
-      <div className="">
+      <div>
         <div className="container">
-          <Card Img={Img} name={name} Description={Description} loader={loader}/>
+          <Card Img={Img} name={name} Description={data.description} loader={loader}/>
         </div>
-
         <Comics charName={charName} name={name}/>
       </div>
     </>
