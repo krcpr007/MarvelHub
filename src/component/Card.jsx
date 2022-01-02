@@ -23,7 +23,7 @@ function Card({ Img, name, Description ,loader }) {
           <h2 className="card-title">{name}</h2>
           <p className="text-justify">{Description || "No Data Available"}</p>
           <div className="card-actions">
-            <button className="btn btn-primary btn glass rounded-full">Get Started</button>
+            {/* <button className="btn btn-primary btn glass rounded-full">Get Started</button> */}
           </div>
         </div>
       </div>
