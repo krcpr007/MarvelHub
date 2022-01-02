@@ -48,13 +48,13 @@ const Welcome = () => {
                 <div className="relative ">
                   <input
                     type="text"
-                    className="w-full  pr-40 bg-gray-200 input text-black border-2 border-primary"
+                    className="w-full  pr-40 bg-gray-200 input text-black border-1 border-primary"
                     placeholder="hulk"
                     name="search"
                     onChange={(e) => setSearch(e.target.value)}
                   />
                   <button
-                    className="absolute top-0 right-0 rounded-l-none w-36 btn border-2 border-primary text-primary"
+                    className="absolute top-0 right-0 rounded-l-none w-36 btn border-1 border-primary text-primary"
                     onClick={onclickbutton}
                   >
                    <FaSearchengin/>
