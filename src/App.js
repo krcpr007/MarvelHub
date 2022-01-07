@@ -8,6 +8,8 @@ import Navbar from "./component/Navbar";
 import Welcome from "./component/Welcome";
 import Footer from "./component/Footer";
 import About from "./component/About";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
@@ -18,6 +20,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
          </Routes>
        <Footer />
+       <ToastContainer theme="dark" />
       </Router>
     </>
   );
