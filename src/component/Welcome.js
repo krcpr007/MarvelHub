@@ -4,11 +4,12 @@ import { FaSearchengin } from "react-icons/fa";
 import Card from "./Card";
 import Comics from "./Comics";
 import Carousel from "./Carousel";
+import { toast } from "react-toastify";
 const Welcome = () => {
   const [name, setname] = useState();
   const [loader, setLoader] = useState(true);
   const [charName, setcharName] = useState("hulk");
-  const [data, setData] = useState([]);
+  const [description, setDescription] = useState([]);
   const [Img, setImg] = useState();
   const [search, setSearch] = useState(null);
   const onclickbutton = (e) => {
@@ -19,7 +20,7 @@ const Welcome = () => {
     setLoader(true)
     fetch(
       `https://gateway.marvel.com/v1/public/characters?ts=1&name=${
-        charName || "hulk"
+        charName 
       }&apikey=a3938f63f5fed93b827255a83feeecd3&hash=7fe5fce16f2f9f493ac53936f10beff0`
     )
       .then((resp) => resp.json())
@@ -28,14 +29,16 @@ const Welcome = () => {
           {
             (
               setLoader(false),
-               setData(resp.data.results[0]),
                setImg(resp.data.results[0].thumbnail.path),
-               setname(resp.data.results[0].name)
-
+               setname(resp.data.results[0].name),
+               setDescription(resp.data.results[0].description)
             )
           }
         </>
-      ));
+      )).catch(()=>{
+        console.log("error");
+        toast.error("Enter correct super hero name")
+      });
   }, [charName]);
   return (
     <> 
@@ -67,7 +70,7 @@ const Welcome = () => {
       </section>
       <div>
         <div className="container">
-          <Card Img={Img} name={name} Description={data.description} loader={loader}/>
+          <Card Img={Img} name={name} Description={description} loader={loader}/>
         </div>
         <Comics charName={charName} name={name}/>
       </div>
