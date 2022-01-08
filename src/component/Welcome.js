@@ -11,12 +11,8 @@ const Welcome = () => {
   const [charName, setcharName] = useState("hulk");
   const [description, setDescription] = useState([]);
   const [Img, setImg] = useState();
-  const [search, setSearch] = useState(null);
   const onclickbutton = (e) => {
     e.preventDefault();
-    setcharName(search);
-  };
-  useEffect(() => {
     setLoader(true)
     fetch(
       `https://gateway.marvel.com/v1/public/characters?ts=1&name=${
@@ -39,7 +35,28 @@ const Welcome = () => {
         console.log("error");
         toast.error("Enter correct super hero name")
       });
-  }, [charName]);
+  };
+  useEffect(() => {
+    setLoader(true)
+    fetch(
+      `https://gateway.marvel.com/v1/public/characters?ts=1&name=hulk&apikey=a3938f63f5fed93b827255a83feeecd3&hash=7fe5fce16f2f9f493ac53936f10beff0`
+    )
+      .then((resp) => resp.json())
+      .then((resp) => (
+        <>
+          {
+            (
+              setLoader(false),
+               setImg(resp.data.results[0].thumbnail.path),
+               setname(resp.data.results[0].name),
+               setDescription(resp.data.results[0].description)
+            )
+          }
+        </>
+      )).catch(()=>{
+        toast.error("Enter correct super hero name")
+      });
+  }, []);
   return (
     <> 
     <Carousel name={name}  charName={charName} />
@@ -52,9 +69,11 @@ const Welcome = () => {
                   <input
                     type="text"
                     className="w-full  pr-40 bg-gray-200 input text-black border-1 border-primary"
-                    placeholder="hulk"
+                    placeholder="Search marvel heros"
                     name="search"
-                    onChange={(e) => setSearch(e.target.value)}
+                    value={charName}
+                    // onChange={(e) => setSearch(e.target.value)}
+                    onChange={(e)=> setcharName(e.target.value)}
                   />
                   <button
                     className="absolute top-0 right-0 rounded-l-none w-36 btn border-1 border-primary text-primary"
