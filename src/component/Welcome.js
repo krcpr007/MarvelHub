@@ -27,13 +27,16 @@ const Welcome = () => {
               setLoader(false),
                setImg(resp.data.results[0].thumbnail.path),
                setname(resp.data.results[0].name),
-               setDescription(resp.data.results[0].description)
+               setDescription(resp.data.results[0].description, 
+                setcharName(""))
+              
             )
           }
         </>
       )).catch(()=>{
         console.log("error");
         toast.error("Enter correct super hero name")
+        setcharName("hulk")
       });
   };
   useEffect(() => {
