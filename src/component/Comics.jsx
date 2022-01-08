@@ -15,7 +15,7 @@ function Comics({ charName , name}) {
           setData(resp.data.results)
           )}</>
       ));
-    }, [charName]);
+    }, [name]);
 
   return (
     <div className="lg:text-center">
