@@ -13,7 +13,7 @@ const Welcome = () => {
   const [Img, setImg] = useState();
   const onclickbutton = (e) => {
     e.preventDefault();
-    setLoader(true)
+    setLoader(true);
     fetch(
       `https://gateway.marvel.com/v1/public/characters?ts=1&name=${
         charName 
@@ -24,12 +24,11 @@ const Welcome = () => {
         <>
           {
             (
-              setLoader(false),
                setImg(resp.data.results[0].thumbnail.path),
                setname(resp.data.results[0].name),
-               setDescription(resp.data.results[0].description, 
-                setcharName(""))
-              
+               setDescription(resp.data.results[0].description),
+                setcharName(""),
+                setLoader(false)
             )
           }
         </>
