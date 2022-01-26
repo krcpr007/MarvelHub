@@ -1,10 +1,10 @@
 # Marvel Hub []('https://marvelhub.pages.dev/')
 ## What is Marvel Hub 
-<p>Marvel Hub is basically a React-based website where you can search about your favorite marvel superhero this website is made with Reactjs and Bootstrap using Marvel API.
+<p>Marvel Hub is basically a React-based website where you can search about your favorite marvel superhero and their comics this website is made with Reactjs and Taiwind css using Marvel API and hosted on cloudflare <a href="https://marvelhub.pages.dev/">click here</a> .
 </p>
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+<img src="./public/image1.jpg" />
+<img src="./public/image2.jpg" />
+<img src="./public/image3.jpg" />
 ## Available Scripts
 
 In the project directory, you can run:
