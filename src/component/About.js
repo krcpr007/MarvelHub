@@ -78,7 +78,7 @@ const About = () => {
             <div className="rounded-md shadow">
               <Link
                 to="/"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md  bg-primary hover:bg-indigo-100 md:py-4 md:text-lg md:px-10"
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md  bg-primary hover:bg-indigo-200 md:py-3 md:text-lg md:px-10 btn btn-primary"
               >
                 Home
               </Link>
@@ -88,7 +88,7 @@ const About = () => {
                 href="https://github.com/krcpr007/MarvelHub"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md  bg-primary hover:bg-indigo-200 md:py-4 md:text-lg md:px-10 btn btn-primary"
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md  bg-primary hover:bg-indigo-200 md:py-3 md:text-lg md:px-10 btn btn-primary"
               >
                 <FaGithub fontSize={25} />
               </a>
