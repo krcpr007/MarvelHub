@@ -6,12 +6,12 @@ import Comics from "./Comics";
 import Carousel from "./Carousel";
 import { toast } from "react-toastify";
 const Welcome = () => {
-  const [name, setname] = useState();
+  const [name, setName] = useState('');
   const [loader, setLoader] = useState(true);
-  const [charName, setcharName] = useState("hulk");
+  const [charName, setCharName] = useState("hulk");
   const [description, setDescription] = useState([]);
   const [Img, setImg] = useState();
-  const onclickbutton = (e) => {
+  const onclickButton = (e) => {
     e.preventDefault();
     setLoader(true);
     fetch(
@@ -25,20 +25,21 @@ const Welcome = () => {
           {
             (
                setImg(resp.data.results[0].thumbnail.path),
-               setname(resp.data.results[0].name),
+               setName(resp.data.results[0].name),
                setDescription(resp.data.results[0].description),
-                setcharName(""),
-                setLoader(false)
+               setCharName(""),
+               setLoader(false)
             )
           }
         </>
       )).catch(()=>{
-        console.log("error");
-        toast.error("Enter correct super hero name")
-        setcharName("hulk")
+        // console.log("error");
+        toast.error("Enter correct name")
+        setCharName("hulk");
+        firstSearch()
       });
   };
-  useEffect(() => {
+  const firstSearch = async()=>{
     setLoader(true)
     fetch(
       `https://gateway.marvel.com/v1/public/characters?ts=1&name=hulk&apikey=a3938f63f5fed93b827255a83feeecd3&hash=7fe5fce16f2f9f493ac53936f10beff0`
@@ -50,14 +51,17 @@ const Welcome = () => {
             (
               setLoader(false),
                setImg(resp.data.results[0].thumbnail.path),
-               setname(resp.data.results[0].name),
+               setName(resp.data.results[0].name),
                setDescription(resp.data.results[0].description)
             )
           }
         </>
       )).catch(()=>{
-        toast.error("Enter correct super hero name")
+        toast.error("Enter correct name")
       });
+  }
+  useEffect(() => {
+    firstSearch();
   }, []);
   return (
     <> 
@@ -75,11 +79,11 @@ const Welcome = () => {
                     name="search"
                     value={charName}
                     // onChange={(e) => setSearch(e.target.value)}
-                    onChange={(e)=> setcharName(e.target.value)}
+                    onChange={(e)=> setCharName(e.target.value)}
                   />
                   <button
                     className="absolute top-0 right-0 rounded-l-none w-36 btn border-1 border-primary text-primary"
-                    onClick={onclickbutton}
+                    onClick={onclickButton}
                   >
                    <FaSearchengin/>
                   </button>
